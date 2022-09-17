@@ -1,6 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @brewery %>
+<h2><%= @brewery.name %></h2>
+
+<p>Established in: <%= @brewery.year %></p>
+
+<p>Beers count: <%= @brewery.beers.count %></p>
+
+<p>
+ <% @brewery.beers.each do |beer| %>
+   <%= link_to beer.name, edit_brewery_path(beer) %>
+ <% end %>
+</p>
 
 <div>
   <%= link_to "Edit this brewery", edit_brewery_path(@brewery) %> |
