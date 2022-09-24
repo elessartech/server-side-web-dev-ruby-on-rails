@@ -7,6 +7,14 @@
 </p>
 
 <div>
+  <span>
+    <% if @beer.ratings.empty? %>
+        beer has not yet been rated!
+    <% else %>
+      Beer has <%= @beer.ratings.length %> ratings with an average of <%= (@beer.ratings.map{|rating| rating.score.to_f}.sum / @beer.ratings.length).round(2) %>
+    <% end %>
+  </span>
+  <br/>
   <%= link_to "Edit this beer", edit_beer_path(@beer) %> |
   <%= link_to "Back to beers", beers_path %>
 
