@@ -11,7 +11,7 @@
     <% if @beer.ratings.empty? %>
         beer has not yet been rated!
     <% else %>
-      Beer has <%= @beer.ratings.length %> ratings with an average of <%= (@beer.ratings.map{|rating| rating.score.to_f}.sum / @beer.ratings.length).round(2) %>
+      Beer has <%= pluralize(@beer.ratings.length, 'rating') %> with an average of <%= (@beer.ratings.map{|rating| rating.score.to_f}.sum / @beer.ratings.length).round(2) %>
     <% end %>
   </span>
   <br/>
