@@ -1,0 +1,49 @@
+Loading development environment (Rails 7.0.4)
+irb(main):001:0> reload!
+Reloading...
+=> true
+
+irb(main):038:0> b1 = Brewery.create name: "BrewDog", year: 2007
+  TRANSACTION (0.0ms)  begin transaction
+  Brewery Create (1.5ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "BrewDog"], ["year", 2007], ["created_at", "2022-09-24 14:26:28.044552"], ["updated_at", "2022-09-24 14:26:28.044552"]]
+  TRANSACTION (2.2ms)  commit transaction
+=> #<Brewery:0x0000019fd2c3e7e0 id: 8, name: "BrewDog", year: 2007, created_at: Sat, 24 Sep 2022 14:26:28.044552000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:26:28.044552000 UTC +00:00>
+irb(main):039:0> b1.beers.create name: "Punk IPA", style: "IPA"
+  TRANSACTION (0.0ms)  begin transaction
+  Beer Create (9.4ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk IPA"], ["style", "IPA"], ["brewery_id", 8], ["created_at", "2022-09-24 14:26:54.692069"], ["updated_at", "2022-09-24 14:26:54.692069"]]
+  TRANSACTION (2.2ms)  commit transaction
+=> #<Beer:0x0000019fd141ace0 id: 8, name: "Punk IPA", style: "IPA", brewery_id: 8, created_at: Sat, 24 Sep 2022 14:26:54.692069000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:26:54.692069000 UTC +00:00>
+irb(main):040:0> b1.beers.create name: "Nanny State", style: "lowalcohol"
+  TRANSACTION (0.0ms)  begin transaction
+  Beer Create (8.7ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 8], ["created_at", "2022-09-24 14:27:06.735364"], ["updated_at", "2022-09-24 14:27:06.735364"]]  
+  TRANSACTION (2.8ms)  commit transaction    
+=> #<Beer:0x0000019fd2ca78d0 id: 9, name: "Nanny State", style: "lowalcohol", brewery_id: 8, created_at: Sat, 24 Sep 2022 14:27:06.735364000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:27:06.735364000 UTC +00:00>
+
+
+
+irb(main):014:0> nanny_state =  Beer.find_by name: "Punk IPA"
+  Beer Load (0.3ms)  SELECT "beers".* FROM "beers" WHERE "beers"."name" = ? LIMIT ?  [["name", "Punk IPA"], ["LIMIT", 1]]
+=> #<Beer:0x000002870c2a32e0 id: 8, name: "Punk IPA", style: "IPA", brewery_id: 8, created_at: Sat, 24 Sep 2022 14:26:54.692069000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:29:32.778246000 UTC +00:00>00:00>
+irb(main):015:0> nanny_state                                                                                                                                                                        00:00>
+=> #<Beer:0x000002870c2a32e0 id: 8, name: "Punk IPA", style: "IPA", brewery_id: 8, created_at: Sat, 24 Sep 2022 14:26:54.692069000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:29:32.778246000 UTC +00:00>
+irb(main):016:0> nanny_state.ratings.create score: 15                                                                                                                                               "updated_at", "2022-09-24 14:39:
+  TRANSACTION (0.1ms)  begin transaction                                                                                                                                                            00:00>
+  Rating Create (9.6ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 15], ["beer_id", 8], ["created_at", "2022-09-24 14:39:03.226102"], ["updated_at", "2022-09-24 14:39:03.226102"]]00000                                PA", style: "IPA", brewery_id: 8, created_at: Sat, 24 Sep 2022 14:26:54.692069000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:29:32.778246000 UTC +00:00>
+  TRANSACTION (2.2ms)  commit transaction
+=> #<Rating:0x000002870b959900 id: 7, score: 15, beer_id: 8, created_at: Sat, 24 Sep 2022 14:39:03.226102000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:39:03.226102000 UTC +00:00>                "updated_at", "2022-09-24 14:39:
+irb(main):017:0> nanny_state.ratings.create score: 8
+  TRANSACTION (0.0ms)  begin transaction
+  Rating Create (10.0ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 8], ["beer_id", 8], ["created_at", "2022-09-24 14:39:06.271044"], [["updated_at", "2022-09-24 14:38"updated_at", "2022-09-24 14:39:06.271044"]]1:0>                                 10
+  TRANSACTION (3.2ms)  commit transaction
+=> #<Rating:0x000002870b667f58 id: 8, score: 8, beer_id: 8, created_at: Sat, 24 Sep 2022 14:39:06.271044000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:39:06.271044000 UTC +00:00>:38:25.559226"], "updated_at", "2022-09-24 14:39:
+["updated_at", "2022-09-24 14:38irb(main):018:0> nanny_state.ratings.create score: 4
+  TRANSACTION (0.1ms)  begin transaction
+  Rating Create (10.4ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 4], ["beer_id", 8], ["created_at", "2022-09-24 14:39:08.270108"], ["updated_at", "2022-09-24 14:38:"updated_at", "2022-09-24 14:39:08.270108"]]2:0>                                 22
+  TRANSACTION (3.2ms)  commit transaction
+=> #<Rating:0x000002870c090638 id: 9, score: 4, beer_id: 8, created_at: Sat, 24 Sep 2022 14:39:08.270108000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:39:08.270108000 UTC +00:00>38:28.548733"], [updated_at", "2022-09-24 14:39:1"updated_at", "2022-09-24 14:38:irb(main):019:0> nanny_state.ratings.create score: 1
+  TRANSACTION (0.1ms)  begin transaction
+  Rating Create (2.5ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 1], ["beer_id", 8], ["created_at", "2022-09-24 14:39:10.000807"], [""updated_at", "2022-09-24 14:38:updated_at", "2022-09-24 14:39:10.000807"]]13:0> punk_beer.ratings.create score: 15
+  TRANSACTION (2.8ms)  commit transaction
+=> #<Rating:0x000002870c2e38e0 id: 10, score: 1, beer_id: 8, created_at: Sat, 24 Sep 2022 14:39:10.000807000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:39:10.000807000 UTC +00:00>8:33.215482"], ["updated_at", "2022-09-24 14:38:irb(main):020:0>
+  TRANSACTION (3.1ms)  commit transaction
+=> #<Rating:0x000002870c2127b8 id: 6, score: 15, beer_id: 8, created_at: Sat, 24 Sep 2022 14:38:33.215482000 UTC +00:00, updated_at: Sat, 24 Sep 2022 14:38:33.215482000 UTC +00:00>

@@ -1,2 +1,8 @@
 class Beer < ApplicationRecord
-end
+    belongs_to :brewery
+    has_many :ratings
+  end
+  
+  class Rating < ApplicationRecord
+    belongs_to :beer
+  end
