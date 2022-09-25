@@ -11,4 +11,7 @@ class Brewery < ApplicationRecord
     def to_s
         self.name
     end
+    def average_rating
+        self.beers.map{|beer| beer.ratings.map{|rating| rating.score.to_f}}.sum
+    end 
 end

@@ -15,6 +15,10 @@
 </p>
 
 <p>
+  Brewery has  <%= @brewery.average_rating.length %> ratings with an average of <%= (@brewery.average_rating.sum / @brewery.average_rating.length) %>
+</p>
+
+<p>
   <%= link_to 'list of beers', beers_path %>
 </p>
 
