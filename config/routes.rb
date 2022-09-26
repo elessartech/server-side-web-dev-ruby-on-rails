@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :users
   resources :beers
   resources :breweries
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
   resources :ratings,
             only: %i[index
                      new create destroy]
+  resource :session, only: [:new, :create, :destroy]
+  get 'signup', to: 'users#new'
 end
