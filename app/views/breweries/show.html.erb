@@ -13,15 +13,13 @@
    <%= link_to beer.name, beer_path(beer) %>
  <% end %>
 </p>
-
 <p>
-  <% if @brewery.average_rating.empty? %>
-    Beer has not yet been rated!
+  <% if @brewery.ratings.empty? %>
+    brewery has not yet been rated!
   <% else %>
-    Brewery has <%= pluralize(@brewery.average_rating.length, 'rating') %> with an average of <%= (@brewery.average_rating.sum / @brewery.average_rating.length) %>
+    Brewery has <%= pluralize(@brewery.ratings.length, 'rating') %> with an average of <%= @brewery.average_rating %>
   <% end %>
 </p>
-
 <p>
   <%= link_to 'list of beers', beers_path %>
 </p>

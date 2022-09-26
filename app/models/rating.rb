@@ -4,7 +4,3 @@ class Rating < ApplicationRecord
         "tekstiesitys"
     end
 end
-
-class Brewery < ApplicationRecord
-    has_many :ratings
-end
