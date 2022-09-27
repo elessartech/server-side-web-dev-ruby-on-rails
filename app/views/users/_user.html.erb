@@ -8,6 +8,14 @@
   <p>
     Has made <%= pluralize(user.ratings.length, "rating") %>, average rating <%= user.average_rating %>
   </p>
+  <p>
+    <strong>member of:</strong>
+    <ul>
+      <% user.memberships.each do |membership| %> 
+        <li><%= link_to membership.beer_club.name, membership.beer_club %></li>
+      <% end %>
+    </ul>
+  </p>
   <ul>
     <% user.ratings.each do |rating| %>
       <li> <%= render rating %> <%= button_to 'delete', rating, method: :delete, form: { data: { turbo_confirm: "Are you sure you want delete?"}} %> </li>
