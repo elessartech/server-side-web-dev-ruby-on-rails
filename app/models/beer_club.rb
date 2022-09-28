@@ -1,8 +1,10 @@
-class BeerClub < ApplicationRecord
-    has_many :memberships
-    has_many :users, through: :memberships
+# frozen_string_literal: true
 
-    def to_s
-        name
-    end
+class BeerClub < ApplicationRecord
+  has_many :memberships
+  has_many :users, through: :memberships
+
+  def to_s
+    name
+  end
 end

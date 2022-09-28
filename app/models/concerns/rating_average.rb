@@ -5,8 +5,6 @@ module RatingAverage
 
   def average_rating
     scores = ratings.map(&:score)
-    unless ratings.empty?
-      (scores.sum / scores.length).to_f
-    end
+    (scores.sum / scores.length).to_f unless ratings.empty?
   end
 end
