@@ -97,3 +97,9 @@ group :development,
 end
 
 gem 'bcrypt', '~> 3.1.7'
+
+group :test do
+  # ...
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'ffi'
+end
