@@ -94,6 +94,7 @@ end
 group :development,
       :test do
   gem 'pry-byebug'
+  gem 'factory_bot_rails'
 end
 
 gem 'bcrypt', '~> 3.1.7'

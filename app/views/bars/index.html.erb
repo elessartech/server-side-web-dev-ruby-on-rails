@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bars</h1>
+
+<div id="bars">
+  <% @bars.each do |bar| %>
+    <%= render bar %>
+    <p>
+      <%= link_to "Show this bar", bar %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bar", new_bar_path %>
