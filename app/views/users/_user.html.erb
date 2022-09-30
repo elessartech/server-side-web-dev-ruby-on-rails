@@ -8,6 +8,13 @@
   <p>
     Has made <%= pluralize(user.ratings.length, "rating") %>, average rating <%= user.average_rating %>
   </p>
+  <% if user.favorite_style or user.favorite_brewery %>
+  <p>
+    <strong>Favorite style:</strong> <%= user.favorite_style %>
+    <br/>
+    <strong>Favorite brewery:</strong> <%= user.favorite_brewery %>
+  </p>
+  <% end %>
   <p>
     <strong>member of:</strong>
     <ul>
