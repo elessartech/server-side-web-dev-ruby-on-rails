@@ -82,4 +82,10 @@ RSpec.describe User, type: :model do
       user2 = FactoryBot.create(:user, username: "Vilma")
     end
   end
+  describe "favorite style" do
+    let(:user){ FactoryBot.create(:user) }
+    it "has method for determining one" do
+      expect(user).to respond_to(:favorite_style)
+    end
+  end
 end
