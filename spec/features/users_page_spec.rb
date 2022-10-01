@@ -51,4 +51,13 @@ describe "User" do
       click_button('delete')
     }.to change{Rating.count}.by(-1)
   end
+
+  it "can see favorite brewery and style on the users page" do 
+    beer = FactoryBot.create(:beer)
+    user = User.find_by username: "Pekka"
+    FactoryBot.create(:rating, score: 20, beer: beer, user: user)
+    sign_in(username: "Pekka", password: "Foobar1")
+    expect(page).to have_content 'Favorite style: Lager'
+    expect(page).to have_content 'Favorite brewery: anonymous'
+  end
 end
