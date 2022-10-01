@@ -41,4 +41,14 @@ describe "User" do
     sign_in(username: "Pekka", password: "Foobar1")
     expect(page).to have_content 'anonymous 20'
   end
+
+  it "can delete own ratings and they will be removed from db" do 
+    beer = FactoryBot.create(:beer)
+    user = User.find_by username: "Pekka"
+    FactoryBot.create(:rating, score: 20, beer: beer, user: user)
+    sign_in(username: "Pekka", password: "Foobar1")
+    expect{
+      click_button('delete')
+    }.to change{Rating.count}.by(-1)
+  end
 end
