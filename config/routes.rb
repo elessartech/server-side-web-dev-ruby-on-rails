@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   resources :ratings,
             only: %i[index
                      new create destroy]
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: %i[new create destroy]
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
-  root :to => 'breweries#index'
+  root to: 'breweries#index'
 end

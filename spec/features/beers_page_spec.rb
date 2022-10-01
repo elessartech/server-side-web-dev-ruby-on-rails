@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "Beers page" do
-  describe "addition" do
+describe 'Beers page' do
+  describe 'addition' do
     before :each do
       # jotta muuttuja näkyisi it-lohkoissa, tulee sen nimen alkaa @-merkillä
-      @breweries = ["Koff", "Karjala", "Schlenkerla"]
+      @breweries = %w[Koff Karjala Schlenkerla]
       year = 1896
       @breweries.each do |brewery_name|
         FactoryBot.create(:brewery, name: brewery_name, year: year += 1)
@@ -13,23 +15,22 @@ describe "Beers page" do
       visit breweries_path
     end
 
-    it "works when values are valid" do
-        visit new_beer_path
-        fill_in('beer_name', with:"Iso 3")
+    it 'works when values are valid' do
+      visit new_beer_path
+      fill_in('beer_name', with: 'Iso 3')
 
-        expect{
-            click_button('Create Beer')
-        }.to change{Beer.count}.by(1)
+      expect do
+        click_button('Create Beer')
+      end.to change { Beer.count }.by(1)
     end
 
-    it "doesnt work when values are invalid and the notification is shown" do
-        visit new_beer_path
-        fill_in('beer_name', with:"")
+    it 'doesnt work when values are invalid and the notification is shown' do
+      visit new_beer_path
+      fill_in('beer_name', with: '')
 
-        expect{
-            click_button('Create Beer')
-        }.to change{Beer.count}.by(0)
+      expect do
+        click_button('Create Beer')
+      end.to change { Beer.count }.by(0)
     end
-
   end
 end
