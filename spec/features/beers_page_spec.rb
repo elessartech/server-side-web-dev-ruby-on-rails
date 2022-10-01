@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 
+include Helpers
+
 describe 'Beers page' do
   describe 'addition' do
     before :each do
@@ -11,12 +13,12 @@ describe 'Beers page' do
       @breweries.each do |brewery_name|
         FactoryBot.create(:brewery, name: brewery_name, year: year += 1)
       end
-
-      visit breweries_path
-    end
-
-    it 'works when values are valid' do
+      FactoryBot.create :user
+      sign_in(username: 'Pekka', password: 'Foobar1')
       visit new_beer_path
+    end
+    
+    it 'works when values are valid' do
       fill_in('beer_name', with: 'Iso 3')
 
       expect do
@@ -25,7 +27,6 @@ describe 'Beers page' do
     end
 
     it 'doesnt work when values are invalid and the notification is shown' do
-      visit new_beer_path
       fill_in('beer_name', with: '')
 
       expect do
