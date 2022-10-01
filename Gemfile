@@ -84,13 +84,6 @@ group :development do
   # gem "spring"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
-
 group :development,
       :test do
   gem 'pry-byebug'
@@ -100,12 +93,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :test do
   # ...
-  gem 'ffi'
-  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'capybara'
   gem 'factory_bot_rails'
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem 'ffi'
   gem 'launchy'
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
