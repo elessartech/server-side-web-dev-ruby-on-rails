@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BarsController < ApplicationController
-  before_action :set_bar, only: %i[ show edit update destroy ]
+  before_action :set_bar, only: %i[show edit update destroy]
 
   # GET /bars or /bars.json
   def index
@@ -7,8 +9,7 @@ class BarsController < ApplicationController
   end
 
   # GET /bars/1 or /bars/1.json
-  def show
-  end
+  def show; end
 
   # GET /bars/new
   def new
@@ -16,8 +17,7 @@ class BarsController < ApplicationController
   end
 
   # GET /bars/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bars or /bars.json
   def create
@@ -25,7 +25,7 @@ class BarsController < ApplicationController
 
     respond_to do |format|
       if @bar.save
-        format.html { redirect_to bar_url(@bar), notice: "Bar was successfully created." }
+        format.html { redirect_to bar_url(@bar), notice: 'Bar was successfully created.' }
         format.json { render :show, status: :created, location: @bar }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BarsController < ApplicationController
   def update
     respond_to do |format|
       if @bar.update(bar_params)
-        format.html { redirect_to bar_url(@bar), notice: "Bar was successfully updated." }
+        format.html { redirect_to bar_url(@bar), notice: 'Bar was successfully updated.' }
         format.json { render :show, status: :ok, location: @bar }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class BarsController < ApplicationController
     @bar.destroy
 
     respond_to do |format|
-      format.html { redirect_to bars_url, notice: "Bar was successfully destroyed." }
+      format.html { redirect_to bars_url, notice: 'Bar was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bar
-      @bar = Bar.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bar_params
-      params.require(:bar).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bar
+    @bar = Bar.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bar_params
+    params.require(:bar).permit(:name)
+  end
 end

@@ -4,7 +4,7 @@ class BeersController < ApplicationController
   before_action :set_beer,
                 only: %i[show
                          edit update destroy]
-  before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
+  before_action :set_breweries_and_styles_for_template, only: %i[new edit create]
 
   # GET /beers or /beers.json
   def index
@@ -95,6 +95,6 @@ class BeersController < ApplicationController
 
   def set_breweries_and_styles_for_template
     @breweries = Brewery.all
-    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
+    @styles = ['Weizen', 'Lager', 'Pale ale', 'IPA', 'Porter', 'Lowalcohol']
   end
 end
