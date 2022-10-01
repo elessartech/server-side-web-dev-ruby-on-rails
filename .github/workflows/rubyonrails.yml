@@ -28,7 +28,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
