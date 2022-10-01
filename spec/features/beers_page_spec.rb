@@ -17,7 +17,7 @@ describe 'Beers page' do
       sign_in(username: 'Pekka', password: 'Foobar1')
       visit new_beer_path
     end
-    
+
     it 'works when values are valid' do
       fill_in('beer_name', with: 'Iso 3')
 
