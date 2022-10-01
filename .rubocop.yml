@@ -10,3 +10,15 @@ Metrics/BlockLength:
 
 Metrics/AbcSize:
   Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Lint/ScriptPermission:
+  Enabled: false
