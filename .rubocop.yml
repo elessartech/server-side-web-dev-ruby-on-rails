@@ -22,3 +22,42 @@ Style/NumericLiterals:
 
 Lint/ScriptPermission:
   Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Style/IfUnlessModifier: 
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
