@@ -47,17 +47,9 @@ class BeersController < ApplicationController
           redirect_to beer_url(@beer),
                       notice: 'Beer was successfully updated.'
         end
-        format.json do
-          render :show,
-                 status: :ok, location: @beer
-        end
       else
         format.html do
           render :edit,
-                 status: :unprocessable_entity
-        end
-        format.json do
-          render json: @beer.errors,
                  status: :unprocessable_entity
         end
       end

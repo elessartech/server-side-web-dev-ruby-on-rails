@@ -34,17 +34,9 @@ class BreweriesController < ApplicationController
           redirect_to brewery_url(@brewery),
                       notice: 'Brewery was successfully created.'
         end
-        format.json do
-          render :show,
-                 status: :created, location: @brewery
-        end
       else
         format.html do
           render :new,
-                 status: :unprocessable_entity
-        end
-        format.json do
-          render json: @brewery.errors,
                  status: :unprocessable_entity
         end
       end
@@ -59,17 +51,9 @@ class BreweriesController < ApplicationController
           redirect_to brewery_url(@brewery),
                       notice: 'Brewery was successfully updated.'
         end
-        format.json do
-          render :show,
-                 status: :ok, location: @brewery
-        end
       else
         format.html do
           render :edit,
-                 status: :unprocessable_entity
-        end
-        format.json do
-          render json: @brewery.errors,
                  status: :unprocessable_entity
         end
       end
