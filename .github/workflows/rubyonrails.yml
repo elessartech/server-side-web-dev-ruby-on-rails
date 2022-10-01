@@ -34,6 +34,6 @@ jobs:
         with:
           bundler-cache: true
       - name: Make migrations
-        run: bundle exec rake rails:update:bin
+        run: bundle exec db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundle exec rspec
