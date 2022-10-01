@@ -4,7 +4,7 @@ FactoryBot.define do
   end
 
   factory :user do
-    username { generate :username }
+    username { "Pekka" }
     password { "Foobar1" }
     password_confirmation { "Foobar1" }
   end
