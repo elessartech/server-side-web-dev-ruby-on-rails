@@ -40,4 +40,4 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
       - name: RuboCop Linter Action
-        uses: andrewmcodes/rubocop-linter-action@v3.0.0.rc2
+        uses: andrewmcodes/rubocop-linter-action@v2.0.0
